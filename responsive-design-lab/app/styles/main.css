@@ -1,20 +1,38 @@
-/* main.css */
+body {
+  margin: 0;
+}
 
 .container {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-direction: column;
   background: #eee;
   overflow: auto;
 }
 
-.container .col {
-    width: 27%;
-    padding: 30px 3.15% 0;
-    float: left;
+.container > .col {
+  flex: 1;
+  padding: 1rem;
 }
 
-/* TODO 3 - style the page */
+.no-flexbox .container {
+  background: #eee;
+  overflow: auto;
+}
 
-/* TODO 4 - use media query */
+.no-flexbox .container > .col {
+  width: 95%;
+  padding: 30px 3.15% 0;
+  float: left;
+}
 
-/* TODO 5.2 - use flexbox */
+@media screen and (min-width: 48rem) {
+  .container {
+    flex-direction: row;
+  }
 
-/* TODO 5.4 - use media query with Flexbox*/
+  .no-flexbox .container > .col {
+    width: 27%;
+  }
+}
